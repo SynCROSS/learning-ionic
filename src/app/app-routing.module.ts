@@ -22,6 +22,18 @@ const routes: Routes = [
     loadChildren: () =>
       import('./auth/register/register.module').then(m => m.RegisterPageModule),
   },
+  {
+    path: 'menulist',
+    loadChildren: () => import('./menu/menulist/menulist.module').then( m => m.MenulistPageModule)
+  },
+  {
+    path: 'menudetail',
+    loadChildren: () => import('./menu/menudetail/menudetail.module').then( m => m.MenudetailPageModule)
+  },
+  {
+    path: 'addmenu',
+    loadChildren: () => import('./menu/addmenu/addmenu.module').then( m => m.AddmenuPageModule)
+  },
 ];
 
 @NgModule({
