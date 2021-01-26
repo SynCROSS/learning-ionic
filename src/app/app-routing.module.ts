@@ -23,16 +23,21 @@ const routes: Routes = [
       import('./auth/register/register.module').then(m => m.RegisterPageModule),
   },
   {
-    path: 'menulist',
-    loadChildren: () => import('./menu/menulist/menulist.module').then( m => m.MenulistPageModule)
+    path: 'menu',
+    loadChildren: () =>
+      import('./menu/menulist/menulist.module').then(m => m.MenulistPageModule),
   },
   {
-    path: 'menudetail',
-    loadChildren: () => import('./menu/menudetail/menudetail.module').then( m => m.MenudetailPageModule)
+    path: 'detail',
+    loadChildren: () =>
+      import('./menu/menudetail/menudetail.module').then(
+        m => m.MenudetailPageModule,
+      ),
   },
   {
-    path: 'addmenu',
-    loadChildren: () => import('./menu/addmenu/addmenu.module').then( m => m.AddmenuPageModule)
+    path: 'add',
+    loadChildren: () =>
+      import('./menu/addmenu/addmenu.module').then(m => m.AddmenuPageModule),
   },
 ];
 

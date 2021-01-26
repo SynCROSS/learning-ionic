@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
       console.log('All Fields are Required');
       return false;
     }
-    this.router.navigate(['/home']);
+    this.router.navigate(['/menu']);
     console.log(this.loginForm.value);
   }
 }

@@ -32,6 +32,7 @@
 }
 
 body {
+  text-align: center;
   min-height: 100vh;
 }
 
@@ -48,6 +49,11 @@ body {
 }
 
 ion-title {
-  margin: 0 10px;
+  margin: 0 auto;
   font-weight: 700;
+}
+
+ion-card {
+  background-color: #333;
+  color: #fff;
 }
