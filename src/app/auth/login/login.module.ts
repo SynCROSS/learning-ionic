@@ -8,6 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { RouterModule } from '@angular/router';
 import { LoginPage } from './login.page';
+import { RegisterPage } from '../register/register.page';
 
 @NgModule({
   imports: [
@@ -20,6 +21,12 @@ import { LoginPage } from './login.page';
       {
         path: '/login',
         component: LoginPage,
+        children: [
+          {
+            path: '/register',
+            component: RegisterPage,
+          },
+        ],
       },
     ]),
   ],

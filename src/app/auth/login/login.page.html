@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
     <ion-item lines="full">
       <ion-label position="floating">Username</ion-label>
       <ion-input formControlName="username" type="text" required></ion-input>
@@ -28,4 +28,9 @@
       </ion-col>
     </ion-row>
   </form>
+
+  <ion-text class="flex jc-center ai-center">
+    No Account?&nbsp;<a routerLink="/register">Create One</a>
+  </ion-text>
+  <router-outlet></router-outlet>
 </ion-content>

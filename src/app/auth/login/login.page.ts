@@ -7,13 +7,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  ionicForm: FormGroup;
+  loginForm: FormGroup;
   isSubmitted = false;
 
   constructor(public formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.ionicForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
       password: ['', [Validators.required, Validators.minLength(4)]],
     });
@@ -21,10 +21,10 @@ export class LoginPage implements OnInit {
 
   submitForm() {
     this.isSubmitted = true;
-    if (!this.ionicForm.valid) {
+    if (!this.loginForm.valid) {
       console.log('All Fields are Required');
       return false;
     }
-    console.log(this.ionicForm.value);
+    console.log(this.loginForm.value);
   }
 }
