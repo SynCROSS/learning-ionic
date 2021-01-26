@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,7 +11,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   isSubmitted = false;
 
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(public formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -25,6 +26,7 @@ export class LoginPage implements OnInit {
       console.log('All Fields are Required');
       return false;
     }
+    this.router.navigate(['/home']);
     console.log(this.loginForm.value);
   }
 }
