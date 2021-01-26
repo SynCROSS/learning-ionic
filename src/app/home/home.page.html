@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Home </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="pet_list" *ngFor="let myPet of myPets;" style="margin: 10px 0">
+    name: {{myPet.name}} <br />
+    description: {{myPet.description}} <br />
+    kind: {{myPet.kind}} <br />
+  </div>
+</ion-content>
