@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-menulist',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menulist.page.scss'],
 })
 export class MenulistPage implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
+  menues = axios
+    .get('/add')
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      error(error);
+    });
 }

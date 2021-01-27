@@ -4,8 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content
-  ><ion-fab vertical="bottom" horizontal="end" slot="fixed">
+<ion-content>
+  <ion-card class="menu_list" *ngFor="let menu of menues;">
+    <ion-card-header>
+      <ion-title>{{menu.title}}</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{menu.context}}
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <a routerLink="/add">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>
@@ -13,3 +22,4 @@
     </a>
   </ion-fab>
 </ion-content>
+1

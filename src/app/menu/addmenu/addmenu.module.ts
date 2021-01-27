@@ -1,6 +1,7 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -11,10 +12,17 @@ import { AddmenuPage } from './addmenu.page';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    AddmenuPageRoutingModule
+    AddmenuPageRoutingModule,
+    RouterModule.forChild([
+      {
+        path: '/add',
+        component: AddmenuPage,
+      },
+    ]),
   ],
-  declarations: [AddmenuPage]
+  declarations: [AddmenuPage],
 })
 export class AddmenuPageModule {}

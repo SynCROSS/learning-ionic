@@ -1,7 +1,32 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Add Menu</ion-title>
+    <ion-buttons slot="start" class='back-arrow'>
+      <ion-back-button defaultHref="/menu">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="addMenuForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title" type="text" value='' required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Context</ion-label>
+      <ion-textarea formControlName="context" value='' required></ion-textarea>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block"
+          >Submit</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
