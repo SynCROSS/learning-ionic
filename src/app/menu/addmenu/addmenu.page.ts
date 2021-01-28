@@ -49,16 +49,12 @@ export class AddmenuPage implements OnInit {
     ];
 
     try {
-      for (const menu of this.menues) {
-        console.log(menu);
-      }
-
-      const response = await axios.post('/menu', {
+      const response = await axios.post('https://localhost:3000/menues', {
         title: this.menues[this.menues.length - 1].title + '',
         context: this.menues[this.menues.length - 1].context + '',
         createdAt: this.menues[this.menues.length - 1].createdAt * 1,
       });
-      console.log(response.status);
+      console.log(response);
       this.router.navigate(['/menu']);
     } catch (error) {
       console.error(error);

@@ -1,0 +1,19 @@
+{
+  "menues": [
+    {
+      "title": "title1",
+      "context": "context1",
+      "createdAt": 1
+    },
+    {
+      "title": "title2",
+      "context": "context2",
+      "createdAt": 2
+    },
+    {
+      "title": "title3",
+      "context": "context3",
+      "createdAt": 3
+    }
+  ]
+}

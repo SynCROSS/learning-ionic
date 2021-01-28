@@ -12,9 +12,10 @@ export class MenulistPage implements OnInit {
   ngOnInit() {}
 
   menues = axios
-    .get('/add')
+    .get('http://localhost:3000/menues')
     .then((response) => {
-      console.log(response);
+      console.log('response:', response.data);
+      this.menues = response.data;
     })
     .catch((error) => {
       error(error);
