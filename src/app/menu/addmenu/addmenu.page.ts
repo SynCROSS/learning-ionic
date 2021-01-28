@@ -42,6 +42,7 @@ export class AddmenuPage implements OnInit {
     this.menues = [
       ...this.menues,
       {
+        id: this.menues.length + 1 * 1,
         title: this.addMenuForm.value.title + '',
         context: this.addMenuForm.value.context + '',
         createdAt: Date.now(),
@@ -49,7 +50,8 @@ export class AddmenuPage implements OnInit {
     ];
 
     try {
-      const response = await axios.post('https://localhost:3000/menues', {
+      const response = await axios.post('http://localhost:3000/menues', {
+        id: this.menues[this.menues.length - 1].id * 1,
         title: this.menues[this.menues.length - 1].title + '',
         context: this.menues[this.menues.length - 1].context + '',
         createdAt: this.menues[this.menues.length - 1].createdAt * 1,

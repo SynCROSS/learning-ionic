@@ -1,7 +1,13 @@
 ion-content {
-  min-height: 90vh;
+  height: 100%;
+  min-height: 75vh;
 }
 ion-card {
   border: 1px solid #e0e0e0;
   margin: 1px;
+}
+.button-native {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
