@@ -21,14 +21,6 @@ export class AddmenuPage implements OnInit {
     });
   }
 
-  menues = [
-    // {
-    //   title: '',
-    //   context: '',
-    //   createdAt: 0,
-    // },
-  ];
-
   async submitForm() {
     this.isSubmitted = true;
 
@@ -39,25 +31,14 @@ export class AddmenuPage implements OnInit {
       return false;
     }
 
-    this.menues = [
-      ...this.menues,
-      {
-        id: this.menues.length + 1 * 1,
+    try {
+      const response = await axios.post('http://localhost:3000/menues', {
         title: this.addMenuForm.value.title + '',
         context: this.addMenuForm.value.context + '',
         createdAt: Date.now(),
-      },
-    ];
-
-    try {
-      const response = await axios.post('http://localhost:3000/menues', {
-        id: this.menues[this.menues.length - 1].id * 1,
-        title: this.menues[this.menues.length - 1].title + '',
-        context: this.menues[this.menues.length - 1].context + '',
-        createdAt: this.menues[this.menues.length - 1].createdAt * 1,
       });
       console.log(response);
-      this.router.navigate(['/menu']);
+      this.router.navigate(['/menu', response.data]);
     } catch (error) {
       console.error(error);
     }

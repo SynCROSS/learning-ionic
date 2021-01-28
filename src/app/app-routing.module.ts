@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then(m => m.HomePageModule),
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: '',
@@ -15,29 +15,33 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./auth/login/login.module').then(m => m.LoginPageModule),
+      import('./auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'register',
     loadChildren: () =>
-      import('./auth/register/register.module').then(m => m.RegisterPageModule),
+      import('./auth/register/register.module').then(
+        (m) => m.RegisterPageModule,
+      ),
   },
   {
     path: 'menu',
     loadChildren: () =>
-      import('./menu/menulist/menulist.module').then(m => m.MenulistPageModule),
+      import('./menu/menulist/menulist.module').then(
+        (m) => m.MenulistPageModule,
+      ),
   },
   {
-    path: 'detail',
+    path: 'detail/:title',
     loadChildren: () =>
       import('./menu/menudetail/menudetail.module').then(
-        m => m.MenudetailPageModule,
+        (m) => m.MenudetailPageModule,
       ),
   },
   {
     path: 'add',
     loadChildren: () =>
-      import('./menu/addmenu/addmenu.module').then(m => m.AddmenuPageModule),
+      import('./menu/addmenu/addmenu.module').then((m) => m.AddmenuPageModule),
   },
 ];
 

@@ -47,13 +47,7 @@ body {
 .ai-center {
   align-items: center;
 }
-
-ion-title {
-  margin: 0 auto;
-  font-weight: 700;
-}
-
-ion-card {
-  background-color: #333;
-  color: #fff;
+a {
+  text-decoration: none;
+  color: inherit;
 }

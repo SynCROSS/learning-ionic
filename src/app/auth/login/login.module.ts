@@ -1,3 +1,4 @@
+import { MenudetailPage } from './../../menu/menudetail/menudetail.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -25,6 +26,10 @@ import { RegisterPage } from '../register/register.page';
           {
             path: '/register',
             component: RegisterPage,
+          },
+          {
+            path: '/detail',
+            component: MenudetailPage,
           },
         ],
       },
