@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,11 @@ export class RegisterPage implements OnInit {
   registerForm: FormGroup;
   isSubmitted = false;
 
-  constructor(public formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    public formBuilder: FormBuilder,
+    private router: Router,
+    public alertController: AlertController,
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -28,7 +33,18 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  fetchDate(e) {
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  fetchDate(e: { target: { value: string | number | Date } }) {
     let date = new Date(e.target.value).toISOString().substring(0, 10);
     this.registerForm.get('birthday').setValue(date, {
       onlyself: true,
@@ -38,8 +54,8 @@ export class RegisterPage implements OnInit {
   submitForm() {
     this.isSubmitted = true;
     if (!this.registerForm.valid) {
-      console.log('All Fields are Required.');
-
+      console.log('All Fields Must be Required.');
+      this.presentAlert('All Fields Must be Required');
       return false;
     }
     this.router.navigate(['/login']);

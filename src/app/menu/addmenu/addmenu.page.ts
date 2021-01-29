@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-addmenu',
@@ -12,7 +13,11 @@ export class AddmenuPage implements OnInit {
   addMenuForm: FormGroup;
   isSubmitted = false;
 
-  constructor(public formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    public formBuilder: FormBuilder,
+    private router: Router,
+    public alertController: AlertController,
+  ) {}
 
   ngOnInit() {
     this.addMenuForm = this.formBuilder.group({
@@ -21,13 +26,23 @@ export class AddmenuPage implements OnInit {
     });
   }
 
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
   async submitForm() {
     this.isSubmitted = true;
 
     if (!this.addMenuForm.valid) {
-      console.log(this.addMenuForm.value);
-
-      console.log('All Fields are Required');
+      console.log('All Fields Must be Required');
+      this.presentAlert('All Fields Must be Required');
       return false;
     }
 
@@ -37,7 +52,6 @@ export class AddmenuPage implements OnInit {
         context: this.addMenuForm.value.context + '',
         createdAt: Date.now(),
       });
-      console.log(response);
       this.router.navigate(['/menu', response.data]);
     } catch (error) {
       console.error(error);
