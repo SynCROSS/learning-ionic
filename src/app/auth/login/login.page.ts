@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
     this.isSubmitted = true;
     if (!this.loginForm.valid) {
       console.log('All Fields Must Be Required');
-      this.presentAlert('All Fields Be Required');
+      this.presentAlert('All Fields Must Be Required');
       return false;
     }
     this.router.navigate(['/menu']);
