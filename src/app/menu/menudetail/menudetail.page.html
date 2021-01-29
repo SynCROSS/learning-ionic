@@ -1,7 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Detail</ion-title>
+    <ion-buttons slot="start" class="back-arrow" style="position: absolute">
+      <ion-back-button defaultHref="/menu">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-text>
+    <h1 class="title">
+      <strong> {{title_param}} </strong>
+    </h1>
+    <div class="under_title" style="text-align: end">{{created_date}}</div>
+    <hr />
+    <p class="context">{{context_param}}</p>
+  </ion-text>
+</ion-content>
