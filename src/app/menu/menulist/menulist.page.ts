@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 
+const getAxiosData = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/menues');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 @Component({
   selector: 'app-menulist',
   templateUrl: './menulist.page.html',
@@ -11,13 +20,7 @@ export class MenulistPage implements OnInit {
 
   ngOnInit() {}
 
-  menues = axios
-    .get('http://localhost:3000/menues')
-    .then((response) => {
-      console.log('response:', response.data);
-      this.menues = response.data;
-    })
-    .catch((error) => {
-      error(error);
-    });
+  menues = getAxiosData().then((res) => {
+    return res;
+  });
 }

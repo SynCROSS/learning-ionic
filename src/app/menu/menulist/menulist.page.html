@@ -5,23 +5,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="menu_list " *ngFor="let menu of menues;">
-  <a routerLink="/detail/menu.title">
-    <ion-card-header>
-      <ion-card-title>{{menu.title}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{menu.context}}
-    </ion-card-content>
-  </a>
+  <ion-card
+    class="menu_list"
+    *ngFor="let menu of menues.__zone_symbol__value | keyvalue"
+  >
+    <a
+      [routerLink]="['/detail', menu.value.title]"
+      [queryParams]="{title:menu.value.title, context:menu.value.context}"
+    >
+      <ion-card-header>
+        <ion-card-title>{{menu.value.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{menu.value.context}} </ion-card-content>
+    </a>
   </ion-card>
-  
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <a routerLink="/add">
+    <a [routerLink]="['/add']">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </a>
   </ion-fab>
 </ion-content>
-1
