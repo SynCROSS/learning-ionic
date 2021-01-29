@@ -11,7 +11,7 @@
   >
     <a
       [routerLink]="['/detail', menu.value.title]"
-      [queryParams]="{title:menu.value.title, context:menu.value.context}"
+      [queryParams]="{title:menu.value.title, context:menu.value.context, createdAt:menu.value.createdAt}"
     >
       <ion-card-header>
         <ion-card-title>{{menu.value.title}}</ion-card-title>
